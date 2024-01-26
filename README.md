@@ -1,4 +1,3 @@
-# Employee-Payroll-System using java
 
 # Employee Payroll System (Java)
 
