@@ -14,4 +14,7 @@ public class fullTimeEmployee extends Employee {
         Salary = monthlySalary;
         return Salary;
     }
+    public int getId(){
+      return  this.id;
+    }
 }

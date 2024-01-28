@@ -12,5 +12,8 @@ public abstract class Employee {
 //    Methods
     public abstract double calculateSalary();
 
+    public int getId() {
+        return id;
+    }
 }
 

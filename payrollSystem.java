@@ -14,19 +14,24 @@ public class payrollSystem {
 
     // Adding the values into the arraylist
     public void addEmployee(Employee employee) {
+
         if (!employeeList.contains(employee)) {
             employeeList.add(employee);
-        } else {
+        }
+        else {
             System.out.println("This employee already exists in the list.");
         }
     }
 
     // removing the values into the arraylist
-    public void removeEmployee(Employee employee) {
-        if (employeeList.contains(employee)) {
-            employeeList.remove(employee);
-        } else {
-            System.out.println("This employee is not in the list.");
+    public void removeEmployee(int id) {
+        for (Employee employeeObj : employeeList) {
+            if (employeeObj.getId() == id) {
+                employeeList.remove(employeeObj);
+                break;
+            } else {
+                System.out.println("This employee does not exist in the list.");
+            }
         }
     }
 }
