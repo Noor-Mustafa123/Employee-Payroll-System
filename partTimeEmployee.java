@@ -5,6 +5,8 @@ public class partTimeEmployee extends Employee {
     //    Constructor
     public partTimeEmployee(int id, String name, int hoursWorked, int hourlyRate) {
         super(id, name);
+        this.hoursWorked = hoursWorked;
+        this.hourlyRate = hourlyRate;
     }
 
     @Override

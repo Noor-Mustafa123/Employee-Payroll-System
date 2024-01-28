@@ -17,8 +17,7 @@ public class payrollSystem {
 
         if (!employeeList.contains(employee)) {
             employeeList.add(employee);
-        }
-        else {
+        } else {
             System.out.println("This employee already exists in the list.");
         }
     }
@@ -28,10 +27,20 @@ public class payrollSystem {
         for (Employee employeeObj : employeeList) {
             if (employeeObj.getId() == id) {
                 employeeList.remove(employeeObj);
+                System.out.println("Employee Removed!");
                 break;
             } else {
                 System.out.println("This employee does not exist in the list.");
+                break;
             }
+
+        }
+
+    }
+
+    public void displayEmployees() {
+        for (Employee employee : employeeList) {
+            System.out.println(employee.toString());
         }
     }
 }

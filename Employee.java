@@ -15,5 +15,9 @@ public abstract class Employee {
     public int getId() {
         return id;
     }
+
+    public String toString() {
+        return "Employee [name=" + name + ", id=" + id + ", salary=" + calculateSalary() + "]";
+    }
 }
 
