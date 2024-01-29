@@ -15,9 +15,6 @@ public class fullTimeEmployee extends Employee {
         return Salary;
     }
 
-    public int getId() {
-        return this.id;
-    }
 
     //    setter method
     public void setMonthlySalary(int newSalary) {

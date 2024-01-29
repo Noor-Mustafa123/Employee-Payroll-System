@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 
+
 public class payrollSystem {
     // arraylist as instance variable
     ArrayList<Employee> employeeList;
@@ -23,40 +24,59 @@ public class payrollSystem {
     }
 
     // removing the values into the arraylist
+//    public void removeEmployee(int id) {
+//        Iterator<Employee> iterator = employeeList.iterator();
+//        while(iterator.hasNext()) {
+//           Employee employeeObj =  iterator.next();
+//            if (employeeObj.getId() == id) {
+//                iterator.remove();
+//                System.out.println("Employee Removed!");
+//                return;
+//            }
+//
+//        }
+//        System.out.println("This employee does not exist in the list.");
+//
+//    }
+
     public void removeEmployee(int id) {
-        for (Employee employeeObj : employeeList) {
-            if (employeeObj.getId() == id) {
-                employeeList.remove(employeeObj);
-                System.out.println("Employee Removed!");
-                break;
-            } else {
-                System.out.println("This employee does not exist in the list.");
+        boolean empPresent = false;
+        for (Employee emp : employeeList) {
+            if (emp.getId() == id) {
+                employeeList.remove(emp);
+                empPresent = true;
                 break;
             }
-
         }
-
+        if (!empPresent) {
+            System.out.println("This employee does not exist in the list.");
+        }
     }
 
+
     public void updatePartTimeEmployee(int id, String newName, int newHourlyRate, int newHoursWorked) {
+        boolean employeeFound = false;
+        boolean isPartTime = false;
         for (Employee eachEmployee : employeeList) {
             if (eachEmployee.getId() == id && eachEmployee instanceof partTimeEmployee) {
 //      down-casting to the specific subclass which has the setter method because
 //      the method is expecting an object of the employee class to have the method instead which is not the case
-                ((partTimeEmployee) eachEmployee).setHoursWorked(20);
-                ((partTimeEmployee) eachEmployee).setHourlyRate(20);
+                ((partTimeEmployee) eachEmployee).setHoursWorked(newHoursWorked);
+                ((partTimeEmployee) eachEmployee).setHourlyRate(newHourlyRate);
+                eachEmployee.setName(newName);
+                employeeFound = true;
+                isPartTime = true;
                 break;
             }
-            else if (!(eachEmployee.getId() == id)) {
-                System.out.println("An employee with this id number " + id + " does not exist in the list");
-                break;
-            }
-            else if (!(eachEmployee instanceof partTimeEmployee)) {
-                System.out.println("This employee is not a part time employee in this company");
-                break;
-            }
-
         }
+        if (!employeeFound) {
+            System.out.println("An employee with this id number " + id + " does not exist in the list");
+        }
+        if (!isPartTime) {
+            System.out.println("This employee is not a part time employee in this company");
+        }
+
+
     }
 
     public void displayEmployees() {
