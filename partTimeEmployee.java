@@ -1,6 +1,6 @@
 public class partTimeEmployee extends Employee {
-    int hoursWorked;
-    int hourlyRate;
+    protected int hoursWorked;
+    protected int hourlyRate;
 
     //    Constructor
     public partTimeEmployee(int id, String name, int hoursWorked, int hourlyRate) {
@@ -15,4 +15,14 @@ public class partTimeEmployee extends Employee {
         Salary = this.hoursWorked * this.hourlyRate;
         return Salary;
     }
+
+    //    setter method
+    public void setHourlyRate(int newRate) {
+        this.hourlyRate = newRate;
+    }
+
+    public void setHoursWorked(int newHours){
+        this.hoursWorked = newHours;
+    }
+
 }

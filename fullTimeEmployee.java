@@ -1,5 +1,5 @@
 public class fullTimeEmployee extends Employee {
-    int monthlySalary;
+    protected int monthlySalary;
 
     //    constructor
     public fullTimeEmployee(int id, String name, int monthlySalary) {
@@ -14,7 +14,14 @@ public class fullTimeEmployee extends Employee {
         Salary = monthlySalary;
         return Salary;
     }
-    public int getId(){
-      return  this.id;
+
+    public int getId() {
+        return this.id;
     }
+
+    //    setter method
+    public void setMonthlySalary(int newSalary) {
+        this.monthlySalary = newSalary;
+    }
+
 }

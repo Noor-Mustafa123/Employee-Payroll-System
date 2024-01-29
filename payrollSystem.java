@@ -38,6 +38,27 @@ public class payrollSystem {
 
     }
 
+    public void updatePartTimeEmployee(int id, String newName, int newHourlyRate, int newHoursWorked) {
+        for (Employee eachEmployee : employeeList) {
+            if (eachEmployee.getId() == id && eachEmployee instanceof partTimeEmployee) {
+//      down-casting to the specific subclass which has the setter method because
+//      the method is expecting an object of the employee class to have the method instead which is not the case
+                ((partTimeEmployee) eachEmployee).setHoursWorked(20);
+                ((partTimeEmployee) eachEmployee).setHourlyRate(20);
+                break;
+            }
+            else if (!(eachEmployee.getId() == id)) {
+                System.out.println("An employee with this id number " + id + " does not exist in the list");
+                break;
+            }
+            else if (!(eachEmployee instanceof partTimeEmployee)) {
+                System.out.println("This employee is not a part time employee in this company");
+                break;
+            }
+
+        }
+    }
+
     public void displayEmployees() {
         for (Employee employee : employeeList) {
             System.out.println(employee.toString());

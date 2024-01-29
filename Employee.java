@@ -16,6 +16,10 @@ public abstract class Employee {
         return id;
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public String toString() {
         return "Employee [name=" + name + ", id=" + id + ", salary=" + calculateSalary() + "]";
     }
