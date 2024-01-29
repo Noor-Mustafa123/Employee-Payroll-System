@@ -28,7 +28,7 @@ public class Main {
         payroll.removeEmployee(123);
 
         payroll.updatePartTimeEmployee(125, "kronos", 12,12);
-
+        payroll.updateFullTimeEmployee(111, "ZEUS", 5000);
         System.out.println("after removing noor employee");
 
         payroll.displayEmployees();

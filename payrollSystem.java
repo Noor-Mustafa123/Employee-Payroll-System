@@ -11,6 +11,7 @@ public class payrollSystem {
         employeeList = new ArrayList<>();
     }
 
+
     // ***METHODS***
 
     // Adding the values into the arraylist
@@ -23,21 +24,7 @@ public class payrollSystem {
         }
     }
 
-    // removing the values into the arraylist
-//    public void removeEmployee(int id) {
-//        Iterator<Employee> iterator = employeeList.iterator();
-//        while(iterator.hasNext()) {
-//           Employee employeeObj =  iterator.next();
-//            if (employeeObj.getId() == id) {
-//                iterator.remove();
-//                System.out.println("Employee Removed!");
-//                return;
-//            }
-//
-//        }
-//        System.out.println("This employee does not exist in the list.");
-//
-//    }
+
 
     public void removeEmployee(int id) {
         boolean empPresent = false;
@@ -50,6 +37,13 @@ public class payrollSystem {
         }
         if (!empPresent) {
             System.out.println("This employee does not exist in the list.");
+        }
+    }
+
+
+    public void displayEmployees() {
+        for (Employee employee : employeeList) {
+            System.out.println(employee.toString());
         }
     }
 
@@ -73,15 +67,36 @@ public class payrollSystem {
             System.out.println("An employee with this id number " + id + " does not exist in the list");
         }
         if (!isPartTime) {
-            System.out.println("This employee is not a part time employee in this company");
+            System.out.println("This employee is not a PART time employee in this company");
         }
 
 
     }
 
-    public void displayEmployees() {
-        for (Employee employee : employeeList) {
-            System.out.println(employee.toString());
+
+
+    public void updateFullTimeEmployee(int id, String newName, int newMonthlySalary) {
+        boolean employeeFound = false;
+        boolean isFullTime = false;
+        for (Employee eachEmployee : employeeList) {
+            if (eachEmployee.getId() == id && eachEmployee instanceof fullTimeEmployee) {
+                ((fullTimeEmployee) eachEmployee).setMonthlySalary(newMonthlySalary);
+                eachEmployee.setName(newName);
+                employeeFound = true;
+                isFullTime = true;
+                break;
+            }
         }
+        if (!employeeFound) {
+            System.out.println("An employee with this id number " + id + " does not exist in the list");
+        }
+        if (!isFullTime) {
+            System.out.println("This employee is not a FULL time employee in this company");
+        }
+
+
     }
+
+
+
 }
