@@ -47,7 +47,7 @@ public class payrollSystem {
     }
 
 
-    public void updatePartTimeEmployee(int id, String newName, int newHourlyRate, int newHoursWorked) {
+    public void updatePartTimeEmployee(int id, String newName, int newHourlyRate, int newHoursWorked, int newAttendance) {
         boolean employeeFound = false;
         boolean isPartTime = false;
         for (Employee eachEmployee : employeeList) {
@@ -57,6 +57,7 @@ public class payrollSystem {
                 ((partTimeEmployee) eachEmployee).setHoursWorked(newHoursWorked);
                 ((partTimeEmployee) eachEmployee).setHourlyRate(newHourlyRate);
                 eachEmployee.setName(newName);
+                eachEmployee.setAttendance(newAttendance);
                 employeeFound = true;
                 isPartTime = true;
                 break;
@@ -73,13 +74,14 @@ public class payrollSystem {
     }
 
 
-    public void updateFullTimeEmployee(int id, String newName, int newMonthlySalary) {
+    public void updateFullTimeEmployee(int id, String newName, int newMonthlySalary, int newAttendance) {
         boolean employeeFound = false;
         boolean isFullTime = false;
         for (Employee eachEmployee : employeeList) {
             if (eachEmployee.getId() == id && eachEmployee instanceof fullTimeEmployee) {
                 ((fullTimeEmployee) eachEmployee).setMonthlySalary(newMonthlySalary);
                 eachEmployee.setName(newName);
+                eachEmployee.setAttendance(newAttendance);
                 employeeFound = true;
                 isFullTime = true;
                 break;
@@ -106,10 +108,53 @@ public class payrollSystem {
                 break;
             }
         }
-        if(!employeeExistance){
-            System.out.println("An Employee with the ID#" +id+ "does not exist in the system");
+        if (!employeeExistance) {
+            System.out.println("An Employee with the ID#" + id + "does not exist in the system");
         }
     }
 
+    //    add a method to mark the attendance of an employee?
+//    check if an employee matches the id then apply the markAttendance filter on it
+    public void fullTimeEmployeeAttendanceReport(int id) {
+        boolean employeeFound = false;
+        boolean isFullTime = false;
+        for (Employee eachEmployee : employeeList) {
+            if (eachEmployee.getId() == id && eachEmployee instanceof fullTimeEmployee) {
+                int Attendance = eachEmployee.getAttendance();
+                System.out.println("This full time employee has been present on the job for " + Attendance + " out of 24 working days");
+                employeeFound = true;
+                isFullTime = true;
+                break;
+            }
+        }
+        if (!employeeFound) {
+            System.out.println("An Employee with the ID#" + id + "does not exist in the system");
+        }
+        if (!isFullTime) {
+            System.out.println("This employee is not a full time employee");
+        }
+
+    }
+
+    public void partTimeEmployeeAttendanceReport(int id) {
+        boolean employeeFound = false;
+        boolean isPartTime = false;
+        for (Employee eachEmployee : employeeList) {
+            if (eachEmployee.getId() == id && eachEmployee instanceof partTimeEmployee) {
+                int Attendance = eachEmployee.getAttendance();
+                System.out.println("This part time employee has been present on the job for " + Attendance + " out of 20 working days");
+                employeeFound = true;
+                isPartTime = true;
+                break;
+            }
+        }
+        if (!employeeFound) {
+            System.out.println("An Employee with the ID#" + id + "does not exist in the system");
+        }
+        if (!isPartTime) {
+            System.out.println("This employee is not a full time employee");
+        }
+
+    }
 
 }

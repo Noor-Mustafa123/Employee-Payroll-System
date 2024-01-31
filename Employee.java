@@ -1,7 +1,9 @@
 public abstract class Employee {
-
+    //INSTANCE VARIABLES
     protected String name;
     protected int id;
+
+    protected int attendance = 0;
 
     //  constructor
     public Employee(int id, String name) {
@@ -9,7 +11,7 @@ public abstract class Employee {
         this.id = id;
     }
 
-//    Methods
+    //    Methods
     public abstract double calculateSalary();
 
     public int getId() {
@@ -22,7 +24,7 @@ public abstract class Employee {
 
 
     public String toString() {
-        return "Employee [name=" + name + ", id=" + id + ", salary=" + calculateSalary() + "]";
+        return "Employee [name=" + name + ", id=" + id + ", salary=" + calculateSalary() + ", Total Attendance = " +attendance+ "]";
     }
 
     public void displayEmployeeData(Employee emp) {
@@ -31,5 +33,23 @@ public abstract class Employee {
         System.out.println(output);
     }
 
+    //    method to mark attendance
+    public void markAttendance(boolean present) {
+        if (present) {
+            this.attendance += 1;
+        }
+    }
+
+    //    method to return the attendance value
+    public int getAttendance() {
+        return this.attendance;
+    }
+
+    //    set attendance method
+    public void setAttendance(int newAttendance) {
+        this.attendance = newAttendance;
+    }
 }
+
+
 

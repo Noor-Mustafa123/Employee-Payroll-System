@@ -2,11 +2,17 @@ public class partTimeEmployee extends Employee {
     protected int hoursWorked;
     protected int hourlyRate;
 
+
     //    Constructor
-    public partTimeEmployee(int id, String name, int hoursWorked, int hourlyRate) {
+    public partTimeEmployee(int id, String name, int hoursWorked, int hourlyRate, int attendance) {
         super(id, name);
         this.hoursWorked = hoursWorked;
         this.hourlyRate = hourlyRate;
+        if (attendance <= 20) {
+                this.attendance = attendance;
+        } else {
+            System.out.println("Too much Attendance");
+        }
     }
 
     @Override
@@ -21,7 +27,7 @@ public class partTimeEmployee extends Employee {
         this.hourlyRate = newRate;
     }
 
-    public void setHoursWorked(int newHours){
+    public void setHoursWorked(int newHours) {
         this.hoursWorked = newHours;
     }
 
