@@ -20,8 +20,16 @@ public abstract class Employee {
         this.name = name;
     }
 
+
     public String toString() {
         return "Employee [name=" + name + ", id=" + id + ", salary=" + calculateSalary() + "]";
     }
+
+    public void displayEmployeeData(Employee emp) {
+        System.out.println("Employee DATA");
+        String output = emp.toString();
+        System.out.println(output);
+    }
+
 }
 

@@ -25,7 +25,6 @@ public class payrollSystem {
     }
 
 
-
     public void removeEmployee(int id) {
         boolean empPresent = false;
         for (Employee emp : employeeList) {
@@ -74,7 +73,6 @@ public class payrollSystem {
     }
 
 
-
     public void updateFullTimeEmployee(int id, String newName, int newMonthlySalary) {
         boolean employeeFound = false;
         boolean isFullTime = false;
@@ -97,6 +95,21 @@ public class payrollSystem {
 
     }
 
+    //     A method to search for employees thorough the list
+    public void searchEmployeeByID(int id) {
+        boolean employeeExistance = false;
+//        a for each loop which goes through the list of employee and returns the matching id employee object
+        for (Employee item : employeeList) {
+            if (item.getId() == id) {
+                item.displayEmployeeData(item);
+                employeeExistance = true;
+                break;
+            }
+        }
+        if(!employeeExistance){
+            System.out.println("An Employee with the ID#" +id+ "does not exist in the system");
+        }
+    }
 
 
 }

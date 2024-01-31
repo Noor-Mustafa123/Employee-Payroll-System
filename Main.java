@@ -33,6 +33,10 @@ public class Main {
 
         payroll.displayEmployees();
 
+        payroll.searchEmployeeByID(126);
+        payroll.searchEmployeeByID(111);
+
+
 
 
     }
