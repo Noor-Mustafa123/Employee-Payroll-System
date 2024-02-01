@@ -36,7 +36,7 @@ public class Main {
         payroll.searchEmployeeByID(126);
         payroll.searchEmployeeByID(111);
 
-//  first i have to mark the attendance using the methods sepratly on both the employee objects
+//  first I have to mark the attendance using the methods separately on both the employee objects
 //  then call the report of the payroll system
       payroll.fullTimeEmployeeAttendanceReport(111);
       payroll.partTimeEmployeeAttendanceReport(125);
