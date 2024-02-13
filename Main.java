@@ -44,3 +44,9 @@ public class Main {
     }
 
 }
+
+
+//i have to change the displayEmployee method up so that it shows the status of hte employee that is he a part time employee or a fulltime Employee?
+//create a variable in the employee class and give it value in the child classes and then set that value to the toString() method in the employee class
+//in the child classes check the employeeList for if it is an instance of hte specific class if it is then return the value to the to hte attendance variable
+// and hence added in the toString() method

@@ -15,6 +15,10 @@ public class partTimeEmployee extends Employee {
         }
     }
 
+
+
+
+
     @Override
     public double calculateSalary() {
         double Salary;

@@ -5,8 +5,10 @@ public class payrollSystem {
     // arraylist as instance variable
     ArrayList<Employee> employeeList;
 
+
     // constructor
     public payrollSystem() {
+
         // this creates a new empty arraylist
         employeeList = new ArrayList<>();
     }
@@ -42,8 +44,15 @@ public class payrollSystem {
 
     public void displayEmployees() {
         for (Employee employee : employeeList) {
-            System.out.println(employee.toString());
+            if (employee instanceof partTimeEmployee) {
+                employee.employeeStatus = "Part Time Employee";
+                System.out.println(employee.toString());
+            } else if (employee instanceof fullTimeEmployee) {
+                employee.employeeStatus = "Full Time Employee";
+                System.out.println(employee.toString());
+            }
         }
+
     }
 
 

@@ -3,13 +3,16 @@ public abstract class Employee {
     protected String name;
     protected int id;
 
+    protected String  employeeStatus;
+
     protected int attendance = 0;
 
     //  constructor
     public Employee(int id, String name) {
         this.name = name;
-        this.id = id;
-    }
+        this.id = id;}
+
+
 
     //    Methods
     public abstract double calculateSalary();
@@ -24,7 +27,7 @@ public abstract class Employee {
 
 
     public String toString() {
-        return "Employee [name=" + name + ", id=" + id + ", salary=" + calculateSalary() + ", Total Attendance = " +attendance+ "]";
+        return "Employee [name=" + name + ", id=" + id + ", salary=" + calculateSalary() + ", Total Attendance = " +attendance+ ", Employee Status =  " + employeeStatus + "]";
     }
 
     public void displayEmployeeData(Employee emp) {

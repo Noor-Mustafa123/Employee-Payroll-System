@@ -2,7 +2,7 @@ public class fullTimeEmployee extends Employee {
     protected int monthlySalary;
 
     //    constructor
-    public fullTimeEmployee(int id, String name, int monthlySalary, int attendance) {
+    public fullTimeEmployee (int id, String name, int monthlySalary, int attendance) {
         super(id, name);
         this.monthlySalary = monthlySalary;
         if (attendance <= 24) {
